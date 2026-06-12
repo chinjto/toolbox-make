@@ -3,7 +3,7 @@
 PROJECT_NAME ?= project
 DEPLOY_SCRIPT = ~/.make/scripts/angular/deploy.sh
 
-include ~/.make/angular.mk
+include ~/.make/git.mk
 
 build:
 	npm run build
