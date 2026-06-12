@@ -1,4 +1,12 @@
 include .env
 export
 
-include ~/.make/angular.mk
+DEPLOY_SCRIPT = ~/useless-for-this-project
+
+include ~/.make/git.mk
+
+build:
+	echo "Undefined goal"
+
+version:
+	echo "Undefined goal"
