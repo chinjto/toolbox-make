@@ -46,9 +46,9 @@ release: version
 ifndef VERSION
 	$(error VERSION is required. Usage: make deploy VERSION=0.2.0)
 endif
-	git add .
-	git commit -m "chore(release): Release v$(VERSION)"
-	git push
+	-git add .
+	-git commit -m "chore(release): Release v$(VERSION)"
+	-git push
 	git tag -a v$(VERSION) -m "v$(VERSION)"
 	git push -u origin v$(VERSION)
 
