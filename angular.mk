@@ -1,4 +1,4 @@
-.PHONY: build clean force-build run test lint preview version deploy feature fix hotfix commit release
+.PHONY: build clean force-build run test lint preview version deploy feature fix hotfix commit release deliver
 
 PROJECT_NAME ?= project
 
@@ -68,3 +68,18 @@ endif
 	git add package.json package-lock.json
 	git commit -m "chore(release): Release v$(VERSION)"
 	git tag -a v$(VERSION) -m "v$(VERSION)"
+
+deliver:
+	@CURRENT_BRANCH=$$(git branch --show-current); \
+	if [ "$$CURRENT_BRANCH" = "develop" ]; then \
+		echo "Already on develop"; \
+		exit 1; \
+	fi; \
+	if [ "$$CURRENT_BRANCH" = "master" ]; then \
+		echo "Cannot deliver from master"; \
+		exit 1; \
+	fi; \
+	git checkout develop && \
+	git merge --no-ff "$$CURRENT_BRANCH" -m "Merge branch '$$CURRENT_BRANCH'" && \
+	git branch -d "$$CURRENT_BRANCH"
+	git push
