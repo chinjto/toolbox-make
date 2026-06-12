@@ -56,7 +56,7 @@ endif
 commit:
 	git add .
 ifdef MESSAGE
-	git commit -m $(MESSAGE)
+	git commit -m "$(MESSAGE)"
 else
 	git commit
 endif
