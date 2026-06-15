@@ -64,6 +64,6 @@ deliver:
 	fi; \
 	git checkout develop && \
 	git merge --no-ff "$$CURRENT_BRANCH" -m "Merge branch '$$CURRENT_BRANCH'" && \
-	git push
-	git branch -d "$$CURRENT_BRANCH"
+	git push && \
+	git branch -d "$$CURRENT_BRANCH" && \
 	git push -d origin "$$CURRENT_BRANCH"
