@@ -1,4 +1,4 @@
-.PHONY: deploy feature fix hotfix commit release deliver
+.PHONY: deploy feature fix hotfix commit release deliver changelog
 
 DEPLOY_SCRIPT ?= ~/not-defined
 
@@ -42,7 +42,7 @@ else
 endif
 	git push
 
-release: version
+release: changelog version
 ifndef VERSION
 	$(error VERSION is required. Usage: make deploy VERSION=0.2.0)
 endif
@@ -67,3 +67,9 @@ deliver:
 	git push && \
 	git branch -d "$$CURRENT_BRANCH" && \
 	git push -d origin "$$CURRENT_BRANCH"
+
+changelog:
+	changelog --repo . --output CHANGELOG.md --release $(VERSION)
+	-git add .
+	-git commit -m "chore(changelog): Publish v$(VERSION)"
+	-git push
