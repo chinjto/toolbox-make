@@ -69,7 +69,7 @@ deliver:
 	git push -d origin "$$CURRENT_BRANCH"
 
 changelog:
-	changelog --repo . --output CHANGELOG.md
+	changelog --repo . --output CHANGELOG.md --release $(VERSION)
 	-git add .
 	-git commit -m "chore(changelog): Publish v$(VERSION)"
 	-git push
