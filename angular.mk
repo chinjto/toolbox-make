@@ -1,7 +1,7 @@
 .PHONY: build clean force-build run test lint preview version deploy
 
 PROJECT_NAME ?= project
-DEPLOY_SCRIPT = ~/.make/scripts/angular/deploy.sh
+DEPLOY_SCRIPT ?= ~/.make/scripts/angular/deploy.sh
 
 include ~/.make/git.mk
 
