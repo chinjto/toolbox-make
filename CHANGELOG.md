@@ -1,9 +1,14 @@
 # Changelog
 
+## v1.4.1
+
+- fix(angular): Add customisation for deploy goal
+
 ## v1.4.0
 
 - feat(latex): Add a .tex template
 - feat(git): Add changelog goal
+- chore(changelog): Publish v1.4.0
 
 ## v1.3.0
 
